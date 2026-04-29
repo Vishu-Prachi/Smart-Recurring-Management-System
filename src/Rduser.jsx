@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { FaTrash } from "react-icons/fa6";
+import { FaPencilAlt } from "react-icons/fa";
+import { FaAddressBook } from "react-icons/fa";
+
 
 export default function Rduser() {
   const [cs, setCs] = useState([]);
@@ -210,7 +214,7 @@ export default function Rduser() {
       {/* TABLE */}
       <h3 className="mt-4">RD Users</h3>
 
-      <table className="table table-dark table-bordered mt-3">
+      <table className="table table-dark table-bordered mt-3npm">
         <thead>
           <tr>
             <th>RID</th>
@@ -243,8 +247,9 @@ export default function Rduser() {
               <td>{user.rdamt}</td>
               <td>{user.rddate}</td>
               <td>
-                <Button variant="danger" onClick={() => del(user.rid)}>Delete</Button>{" "}
-                <Button variant="warning" onClick={() => getUser(user)}>Update</Button>
+                <FaTrash title="Delete" variant="danger" onClick={() => del(user.rid)}>Delete</FaTrash>
+                <FaPencilAlt title="Update" variant="warning" onClick={() => getUser(user)}>Update</FaPencilAlt>
+                <FaAddressBook title="Passbook" variant="warning">Passbook</FaAddressBook>
               </td>
             </tr>
           ))}
